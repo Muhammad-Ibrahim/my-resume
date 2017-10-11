@@ -1,0 +1,28 @@
+.pp {
+    margin-bottom: 20px;cursor: pointer;
+}
+
+#img {
+    display:block;
+    margin-bottom:12px;
+}
+
+input {
+    margin: 40px 0 0;
+}
+
+.button {
+    margin: 0;
+}
+
+#x {
+    position: absolute;
+    text-align: center;
+    background: #f9f9f9;
+    color: hotpink;
+    padding: 3px 10px 3px 9.5px;
+    width: 30px;
+    border: 2px solid hotpink;
+    border-radius: 50%;
+    cursor: pointer;
+}

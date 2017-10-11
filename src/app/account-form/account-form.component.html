@@ -1,0 +1,26 @@
+<div *ngIf="!name && !user.length>0; else profile">
+  <div id="x" *ngIf="small" (click)="newShowAcc()">x</div>
+  <form [formGroup]="aForm" (ngSubmit)="addUser(aForm.value)">
+    
+    <div style="display:inline-block;">
+      <img src="../assets/avatar.png" [@selectedImg]="animateMale" (click)="animate('male')" alt="Male Profile Picture" style="width:100px;min-width:50px;height:100px;min-height:50px;margin-right:10px;" class="pp">
+      or
+      <img src="../assets/favatar.png" [@selectedImg]="animateFemale" (click)="animate('fale')" alt="Female Profile Picture" style="width:100px;min-width:50px;height:100px;min-height:50px;margin-left:10px;" class="pp">
+    </div>
+    
+    <input formControlName="name" [autofocus]="focus" type="text" placeholder="Your Name...">
+    <div class="alert" [@alert] *ngIf="!aForm.controls['name'].valid && aForm.controls['name'].touched">The name is required</div>
+    
+    <input formControlName="password" type="password" placeholder="Password">
+    <div class="alert" [@alert] *ngIf="!aForm.controls['password'].valid && aForm.controls['password'].touched">Password must be at least 6 charachters</div>
+    
+    <br><br><input type="submit" class="button" value="Start Contributing" [disabled]="!aForm.valid" >
+  </form>
+</div>
+
+<ng-template #profile>
+  <div [@profile]>
+    <img [src]="user[0].image" style="margin:0 25px 50px;width:150px;height:150px;">
+    <h3>{{ user[0].name }}</h3>
+  </div>
+</ng-template>

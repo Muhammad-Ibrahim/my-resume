@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "image": "./src/assets/avatar.png",
+      "name": "njsfn",
+      "password": "123456"
+    },
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    }
+  ]
+}

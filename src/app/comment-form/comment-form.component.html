@@ -1,0 +1,31 @@
+<!-- {{user[0].name}} -->
+<div class="contribution">
+  <div class="sentence">
+    <div class="con-info">
+      <img [src]="user[0].image" alt="Contributor image" style="width:50px;height:50px;">
+      <p style="margin-top:0;padding:0 10px;line-height:20px;"><strong>{{ user[0].name }}</strong><br>
+      <span class="date">{{ now | date:'medium' }}</span></p>
+    </div>
+    <div class="con-body">
+      <p style="padding:0 0 10px 60px;">{{ comment }}</p>
+    </div>
+  </div>
+  <button class="button" (click)="openAccordion()">{{value || "Add a Reply"}}</button>
+  <div [@accordion] *ngIf="animateA" class="accordion">
+    <div class="reply">
+      <div *ngIf="rshow">
+        <div *ngFor="let radd of radded; let r = index">
+          <div *ngFor="let rad of radd">
+            <reply-form [reply]="rad"></reply-form>
+          </div>
+        </div>
+      </div>
+      <form [formGroup]="rForm" (ngSubmit)="radd(rForm.value)">
+        <div style="display:inline-flex;">
+          <input formControlName="reply" type="text" placeholder="What do you think?">
+          <input type="submit" class="button" value="Add Reply" [disabled]="!rForm.valid">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

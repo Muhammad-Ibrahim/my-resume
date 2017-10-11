@@ -1,0 +1,86 @@
+<div class="row">
+  <section id="hero">
+    <div id="inner">
+      <div id="item" style="background:url(../assets/older3.png); background-repeat:no-repeat; background-position:center 0%; background-size:cover;">
+        <div class="row">
+          <div class="container">
+            <a id="logo" routerLink="/">&ensp;Go back</a>
+            <h1 id="dec">Hi<span style="display:flex;" *ngIf="user.length > 0">{{' ' + user[0].name }}</span>,<br>This is <strong style="display:flex;">Muhammad Ibrahim</strong></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div style="height:200px;width:100%;background:rgb(31, 179, 107);"></div>
+
+<div *ngIf="buttons" [@showBut] style="padding:120px 0;">
+  <button [ngStyle]="smallButton" (click)="activSec('objective')">Me in&ensp;<img src="../assets/eventtus.png" alt="Eventtus Logo" style="width:25px;height:25px;"></button>
+  <button [ngStyle]="smallButton" (click)="activSec('techie')">Tech</button>
+  <button [ngStyle]="smallButton" (click)="activSec('skills')">Relevant Skills</button>
+  <button [ngStyle]="smallButton" (click)="activSec('human')">Me Outside Work</button>
+</div>
+
+<div *ngIf="objective" class="row" [@showSec] [style.padding]="objpad">
+  <div class="back"><img src="../assets/back.png" alt="go back" (click)="back('objective')"></div>
+  <div class="objective-col" [class]="columns" [ngStyle]="learn" style="text-align:center;">
+    <p>Sharping my knowledge, learning new skills and getting a good sphere</p>
+    <img src="../assets/learn.png" style="width:250px;height:250px;">
+  </div>
+  <div class="objective-col" [class]="columns" [ngStyle]="build" style="text-align:center;">
+    <p>Contributing in a successful startup which builds great products</p>
+    <img src="../assets/build.png" style="width:250px;height:250px;">
+  </div>
+</div>
+
+<div class="row" *ngIf="techie" [@showSec]>
+  <div class="back" style="position:absolute;padding:11.5vw;"><img src="../assets/back.png" alt="go back" (click)="back('techie')"></div>
+  <ul id="techie">
+    <li id="o1" class="left">Backend:&ensp;PHP - Laravel Framework</li><br>
+    <li id="t2" class="right" >HTML & CSS:&ensp;Accessability and Responsive design</li>
+    <li id="t3" class="left">
+      Full Stack:&ensp;Laravel with Bootstrap, jQuery and AJAX<br>
+      see <em><a target="_blank" href="http://geturorders.online/7websites">7websites</a></em>
+    </li>
+    <li id="f4" class="right" >
+      Frontend:&ensp;Bootstrap and jQuery<br>
+      see <em><a target="_blank" href="http://geturorders.online">get</a></em>
+    </li>
+    <li id="f5" class="left">
+      Frontend:&ensp;Angular 4<br>
+      <em><a routerLink="/">This site</a></em>
+    </li>
+    <li id="s6" class="right">Currently, Learning:&ensp;React and Saas</li>
+  </ul>
+</div>
+
+<div *ngIf="skills" class="row" [@showSec] [style.padding]="skillspad">
+  <div class="back"><img src="../assets/back.png" alt="go back" (click)="back('skills')"></div>
+  <div style="text-align:center;">
+    <p style="padding-left:10vw;">
+      Self learning, flexibility, continuos development<br><br>
+      Numbers orientation, good knowledge about business topics, entrepreneurial mindset<br><br>
+      Collective building, team working but in self and small tasks which draw the big pic
+    </p>
+  </div>
+  <div style="text-align:center;">
+    <img src="../assets/skills.png" style="width:94vw;height:30vw;border:0;border-radius:0;">
+  </div>
+</div>
+
+<div *ngIf="human" class="row" [@showSec]>
+  <div class="back" style="position:absolute;padding:11.5vw;"><img src="../assets/back.png" alt="go back" (click)="back('human')"></div>
+  <ul id="human">
+    <li id="oo1" class="left">Love Animals</li>
+    <li id="tt2" class="right">Interested in Philosophy and Intellect</li>
+    <li id="tt3" class="left">Volunteer</li>
+    <li id="ff4" class="right">Minimalist in using things</li>
+    <li id="ff5" class="left">Love People</li>
+  </ul>
+</div>
+<footer style="height:200px; background:#333; padding:60px 30px;font-size:13px;">
+  <p>email: engineermohamed.ibrahim.mi@gmail.com</p>
+  <p>mobile: +20 102 507 5652</p>
+  <p>project on&ensp;<a target="_blank" href="https://github.com/muhammad-ibrahim/my-resume"><img src="../assets/github.png" style="width:25px;height:25px;"></a></p>
+</footer>

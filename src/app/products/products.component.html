@@ -1,0 +1,90 @@
+<div class="row">
+  <div *ngIf="!small" class="shrink columns" id="profile">
+    <account-form></account-form>
+  </div>
+
+  <div [ngStyle]="smallWallStyle" class="columns" id="wall">
+    <p><strong>Data </strong>neither caught nor saved ..<br>
+    <strong>This is a Frontend app </strong>built with angular with no backend services.</p>
+    <div>
+      <div class="contribution" *ngFor="let con of cons.comments; let i = index; let first = first;">
+        
+        <div class="sentence">
+          <div class="con-info">
+            <div *ngIf="first; else notFirst" style="display:flex;">
+              <a routerLink="/m.ibrahim">
+                <img [src]="con.image" [alt]="con.name" style="width:50px;height:50px;">
+              </a>
+              <p style="margin-top:0;padding:0 10px;line-height:20px;">
+                <a style="text-decoration:underline;" routerLink="/m.ibrahim"><strong>{{ con.name }}</strong></a>&ensp;<small>(visit me)</small><br>
+                <span class="date">{{ con.time | date:'medium' }}</span></p>
+              </div>
+            <ng-template #notFirst style="display:flex;"><img [src]="con.image" alt="Contributor image" style="width:50px;height:50px;">
+            <p style="margin-top:0;padding:0 10px;line-height:20px;"><strong>{{ con.name }}</strong><br>
+            <span class="date">{{ con.time | date:'medium' }}</span></p></ng-template>
+          </div>
+          <div class="con-body">
+            <p style="padding:0 0 10px 60px;">{{ con.sentence }}</p>
+          </div>
+        </div>
+        
+        <button class="button" (click)="openAccordion(con)">{{value[con.id] || "View"}} replies...</button>
+        <div [@accordion] *ngIf="animateA[con.id]" class="accordion">
+          <div class="reply" *ngFor="let rep of cons.replies; let last = last">
+            <div *ngIf="rep.com_id == i">
+              <div class="con-info">
+                <img [src]="rep.image" alt="Contributor image" style="width:40px;height:40px;">
+                <p style="margin-top:0;padding:0 10px;"><strong>{{ rep.name }}</strong><br>
+                <span>{{ rep.time | date:'medium' }}</span></p>
+              </div>
+              <div class="con-body">
+                <p style="padding:0 0 10px 50px;">{{ rep.sentence }}</p>
+              </div>
+            </div>
+            <div *ngIf="contribute && last">
+              <!--<reply-form *ngIf="truerep[i]"></reply-form>-->
+              <div *ngIf="rshow">
+                <div *ngFor="let radd of radded; let r = index">
+                  <div *ngFor="let rad of radd">
+                    <reply-form [reply]="rad"></reply-form>
+                  </div>
+                </div>
+              </div>
+              <form [formGroup]="rForm" (ngSubmit)="radd(rForm.value)">
+                <div style="display:inline-flex;">
+                  <input formControlName="reply" type="text" placeholder="What do you think?">
+                  <input type="submit" class="button" value="Add Reply" [disabled]="!rForm.valid">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div *ngIf="!contribute && small" style="text-align:center;">
+        <button class="button" id="contribute" (click)="newShowAcc(true)" >
+          Create account to contribute!
+        </button>
+      </div>
+      <div *ngIf="contribute" class="comment">
+        <div *ngIf="cshow">
+          <comment-form
+            *ngFor="let cadd of cadded; let c = index"
+            [comment]="cadd">
+          </comment-form>
+        </div>
+        <form [formGroup]="cForm" (ngSubmit)="cadd(cForm.value)" style="margin-left:20px;">
+          <div style="display:inline-flex;">
+            <input formControlName="comment" type="text" placeholder="Move it forward...">
+            <input type="submit" class="button" value="Start Contributing" [disabled]="!cForm.valid">
+          </div>
+        </form>
+      </div>
+    </div>
+    
+  </div>
+
+  <div [@modal] *ngIf="showAcc" id="modal" [style.right]="modalRight">
+    <account-form [small]=true></account-form>
+  </div>
+</div>
