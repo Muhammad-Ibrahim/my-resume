@@ -16,7 +16,7 @@
 <div style="height:200px;width:100%;background:rgb(31, 179, 107);"></div>
 
 <div *ngIf="buttons" [@showBut] style="padding:120px 0;">
-  <button [ngStyle]="smallButton" (click)="activSec('objective')">Me in&ensp;<img src="../assets/eventtus.png" alt="Eventtus Logo" style="width:25px;height:25px;"></button>
+  <button [ngStyle]="smallButton" (click)="activSec('objective')">My Objective</button>
   <button [ngStyle]="smallButton" (click)="activSec('techie')">Tech</button>
   <button [ngStyle]="smallButton" (click)="activSec('skills')">Relevant Skills</button>
   <button [ngStyle]="smallButton" (click)="activSec('human')">Me Outside Work</button>
@@ -29,7 +29,7 @@
     <img src="../assets/learn.png" style="width:250px;height:250px;">
   </div>
   <div class="objective-col" [class]="columns" [ngStyle]="build" style="text-align:center;">
-    <p>Contributing in a successful startup which builds great products</p>
+    <p>Collaborating with a successful team in building highly useful products</p>
     <img src="../assets/build.png" style="width:250px;height:250px;">
   </div>
 </div>
@@ -51,7 +51,7 @@
       Frontend:&ensp;Angular 4<br>
       <em><a routerLink="/">This site</a></em>
     </li>
-    <li id="s6" class="right">Currently, Learning:&ensp;React and Saas</li>
+    <li id="s6" class="right">Currently, Learning:&ensp;React and SASS</li>
   </ul>
 </div>
 
@@ -59,9 +59,9 @@
   <div class="back"><img src="../assets/back.png" alt="go back" (click)="back('skills')"></div>
   <div style="text-align:center;">
     <p style="padding-left:10vw;">
-      Self learning, flexibility, continuos development<br><br>
-      Numbers orientation, good knowledge about business topics, entrepreneurial mindset<br><br>
-      Collective building, team working but in self and small tasks which draw the big pic
+      <span>Self learning</span><span>flexibility</span><span>continuos development</span><br><br>
+      <span>Numbers orientation</span><span>good knowledge about business topics</span><span>entrepreneurial mindset</span><br><br>
+      <span>Collective building</span><span>team working but in self and small tasks which draw the big pic</span>
     </p>
   </div>
   <div style="text-align:center;">
