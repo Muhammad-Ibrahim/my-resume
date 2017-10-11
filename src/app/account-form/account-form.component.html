@@ -1,4 +1,4 @@
-<div *ngIf="!name && !user.length>0; else profile">
+<div *ngIf="!name && user.length <= 0; else profile">
   <div id="x" *ngIf="small" (click)="newShowAcc()">x</div>
   <form [formGroup]="aForm" (ngSubmit)="addUser(aForm.value)">
     

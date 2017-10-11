@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "plot-twist-1",
-    "production": "my-resume-mibrahim"
+    "production": "frontend-resume-1",
+    "deployment": "mumm-resume"
   }
 }
