@@ -1,0 +1,25 @@
+<header role="banner">
+  <div class="logo">
+    <img src="../assets/muhammad-ibrahim.jpg" alt="my photo" [style.marginLeft.px]="imgMargin">
+    <p>Muhammad Ibrahim</p>
+  </div>
+  <nav role="navigation">
+    <ul *ngIf="!small" [style.marginLeft.px]="ulMargin">
+      <li>PLAY</li>
+      <li class="active">ABOUT</li>
+    </ul>
+    <div *ngIf="small">
+      <a class="button" type="button" (click)="toggleMenu()" id="menu">
+        <div class="icon-bar"></div>
+        <div class="icon-bar"></div>
+        <div class="icon-bar"></div>
+      </a>
+      <div class="dropdown-pane" [style.visibility]="menuVisibility">
+        <ul>
+          <li>PLAY</li>
+          <li>ABOUT</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

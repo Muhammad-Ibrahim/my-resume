@@ -16,6 +16,7 @@ import { BrowserModule } from '@angular/platform-browser';
   import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   import { MibrahimComponent } from './mibrahim/mibrahim.component';
 import { MainComponent } from './main/main.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MainComponent } from './main/main.component';
     CommentFormComponent,
     ReplyFormComponent,
     MibrahimComponent,
-    MainComponent
+    MainComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
