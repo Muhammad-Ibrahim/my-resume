@@ -12,6 +12,7 @@ import { DataService } from '../data.service';
 import { trigger,state,style,transition,animate,keyframes} from '@angular/animations';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
 selector: 'app-main',
@@ -74,7 +75,7 @@ showReply: boolean;
 cForm: FormGroup;
 now:Date = new Date();
 
-constructor (fb: FormBuilder, private data:DataService) {
+constructor (fb: FormBuilder, private data:DataService, private router:Router) {
   this.rForm = fb.group({
     'reply': [null, Validators.required]
   });
@@ -124,6 +125,10 @@ openAccordion(con) {
     this.value[con.id] = "View";
   }
 }
+
+goBack = function () {
+  this.router.navigateByUrl('/');
+};
 
 //now = moment('2017-08-07 17:05:33').format('DD MMMM YYYY kk:mm');
 

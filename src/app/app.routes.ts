@@ -7,9 +7,9 @@ import { MibrahimComponent } from './mibrahim/mibrahim.component';
 import { AccountFormComponent } from './account-form/account-form.component';
 
 export const router: Routes = [
-    { path: '', component: MainComponent },
-    { path: 'm.ibrahim', component: MibrahimComponent },
-    { path: '**', component: MainComponent }
+    { path: '', component: MibrahimComponent },
+    { path: 'playground', component: MainComponent },
+    { path: '**', component: MibrahimComponent }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
