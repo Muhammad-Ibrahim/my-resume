@@ -1,6 +1,8 @@
 {
   "projects": {
-    "default": "mumm-resume",
-    "production": "mibrahim-resume"
+    "default": "mibrahim-resume",
+    "production": "mibrahim-resume",
+    "tajawal": "mibrahim-resume",
+    "tajawalResume": "mibrahim-resume"
   }
 }

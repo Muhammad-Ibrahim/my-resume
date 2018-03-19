@@ -13,11 +13,11 @@
         <div class="sentence">
           <div class="con-info">
             <div *ngIf="first; else notFirst" style="display:flex;">
-              <a routerLink="/m.ibrahim">
+              <a routerLink="/">
                 <img [src]="con.image" [alt]="con.name" style="width:50px;height:50px;">
               </a>
               <p style="margin-top:0;padding:0 10px;line-height:20px;">
-                <a style="text-decoration:underline;" routerLink="/m.ibrahim"><strong>{{ con.name }}</strong></a>&ensp;<small>(visit me)</small><br>
+                <a style="text-decoration:underline;" routerLink="/"><strong>{{ con.name }}</strong></a>&ensp;<small>(visit me)</small><br>
                 <span class="date">{{ con.time | date:'medium' }}</span></p>
               </div>
             <ng-template #notFirst style="display:flex;"><img [src]="con.image" alt="Contributor image" style="width:50px;height:50px;">

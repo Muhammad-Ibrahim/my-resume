@@ -9,11 +9,8 @@ import { DataService } from '../data.service';
   animations: [
     trigger('showSec', [
       transition('void => *', [
-        style({transform: 'translateX(-300px)', opacity: '1'}),
-        animate('1000ms ease-in-out')
-      ]),
-      transition('* => void', [
-        animate('1000ms ease-in-out', style({transform: 'translateX(-300px)', opacity: '0'}))
+        style({opacity: '1'}),
+        animate('1000ms ease-out')
       ])
     ]),
     trigger('showBut', [
@@ -78,9 +75,35 @@ export class MibrahimComponent implements OnInit {
       }
     //
   };
+
+  items = [
+    {title: "Objective", active: "active"},
+    {title: "Experience", active: null},
+    {title: "JavaScript", active: null},
+    {title: "Outside Work", active: null}
+  ];
+
+  sections = {
+    obj: true,
+    GT: false,
+    JS: false,
+    out: false
+  };
   
   constructor(private data:DataService) { }
 
+  activate(i) {
+    Object.keys(this.items).forEach(k => {
+      this.items[k].active = null;
+    });
+    this.items[i].active = "active";
+
+    Object.keys(this.sections).forEach(k => {
+      this.sections[k] = false;
+    });
+    this.sections[Object.keys(this.sections)[i]] = true;
+  }
+  
   activSec(section) {
     //appearance
     this.buttons = false;

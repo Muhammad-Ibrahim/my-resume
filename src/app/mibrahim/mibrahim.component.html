@@ -14,77 +14,70 @@
 
 <div style="height:200px;width:100%;background:rgb(31, 179, 107);"></div>
 
-<div *ngIf="buttons" [@showBut] style="padding:120px 0;">
-  <button [ngStyle]="smallButton" (click)="activSec('objective')">My Objective</button>
-  <button [ngStyle]="smallButton" (click)="activSec('techie')">Tech</button>
-  <button [ngStyle]="smallButton" (click)="activSec('skills')">Relevant Skills</button>
-  <button [ngStyle]="smallButton" (click)="activSec('human')">Me Outside Work</button>
-</div>
-
-<div *ngIf="objective" class="row" [@showSec] [style.padding]="objpad">
-  <div class="back"><img src="../assets/back.png" alt="go back" (click)="back('objective')"></div>
-  <div class="objective-col" [class]="columns" [ngStyle]="learn" style="text-align:center;">
-    <p>Sharping my knowledge, learning new skills and getting a good sphere</p>
-    <img src="../assets/learn.png" style="width:250px;height:250px;">
+<div id="resume">
+  <div id="navigate">
+    <ul>
+      <li *ngFor="let item of items; let i = index;" [ngClass]="item.active" (click)="activate(i)">{{item.title}}</li>
+    </ul>
   </div>
-  <div class="objective-col" [class]="columns" [ngStyle]="build" style="text-align:center;">
-    <p>Collaborating with a successful team in building highly useful products</p>
-    <img src="../assets/build.png" style="width:250px;height:250px;">
-  </div>
-</div>
+  <div id="content">
+    <div *ngIf="sections.obj" class="row" id="obj">
+      <p>- Sharping my knowledge, learning new skills and getting in a good sphere.</p>
+      <p>- Collaborating with a successful startup like <span id="ta">tajawal:</span> in building a highly useful product</p>
+    </div>
 
-<div class="row" *ngIf="techie" [@showSec]>
-  <div class="back" style="position:absolute;padding:11.5vw;"><img src="../assets/back.png" alt="go back" (click)="back('techie')"></div>
-  <ul id="techie">
-    <li id="o1" class="left">Backend:&ensp;PHP - Laravel Framework</li><br>
-    <li id="t2" class="right" >HTML & CSS:&ensp;Accessability and Responsive design</li>
-    <li id="t3" class="left">
-      Full Stack:&ensp;Laravel with Bootstrap, jQuery and AJAX<br>
-      see <em><a target="_blank" href="http://geturorders.online/7websites">7websites</a></em>
-    </li>
-    <li id="f4" class="right" >
-      Frontend:&ensp;Bootstrap and jQuery<br>
-      see <em><a target="_blank" href="http://geturorders.online">get</a></em>
-    </li>
-    <li id="f5" class="left">
-      Frontend:&ensp;Angular 4 and SAAS<br>
-      see <em><a routerLink="/playground">This social module</a></em>
-    </li>
-    <li id="s6" class="right">Cross Platform:&ensp;Ionic 3 and Cordova<br>
-      see <em>
-            <a target="_blank" href="https://ma3arij-app.firebaseapp.com/">Ma3arij</a>
-               <strong>on web</strong> or download its 
-            <a target="_blank" href="https://drive.google.com/file/d/1hZEVoaeKsyc9RhYnhiiHsyQi3akUBJmI/view?usp=sharing">apk</a>
-          </em>
-    </li>
-    <li id="s7" class="left">Currently, Learning:&ensp;Node.js (Sails.js) and React</li>
-  </ul>
-</div>
+    <div *ngIf="sections.GT" class="row" id="gt">
+      <h3>- Backend</h3>
+      <li>Built a mobile app API using Laravel at "Clueapps" <span style="font-size:13px; color:#555;">(intern: July-Aug 2016)</span></li>
+      
+      <h3>- Full Stack</h3>
+      <li>Built a full-stack website using Laravel, Bootstrap and jQuery</li>
 
-<div *ngIf="skills" class="row" [@showSec] [style.padding]="skillspad">
-  <div class="back"><img src="../assets/back.png" alt="go back" (click)="back('skills')"></div>
-  <div style="text-align:center;">
-    <p style="padding-left:10vw;">
-      <span class="skill">Self learning</span><span class="skill">flexibility</span><span class="skill">continuos development</span><br><br>
-      <span class="skill">Numbers orientation</span><span class="skill">good knowledge about business topics</span><span class="skill">entrepreneurial mindset</span><br><br>
-      <span class="skill">Collective building</span><span class="skill">team working but in self and small tasks which draw the big pic</span>
-    </p>
-  </div>
-  <div style="text-align:center;">
-    <img src="../assets/skills.png" style="width:94vw;height:30vw;border:0;border-radius:0;">
+      <h3>- Frontend</h3>
+      <li>Built <a style="color:rgb(31, 179, 107);" routerLink="/playground">this social module</a> using Angular 4</li>
+      <li>Built a mobile app using Ionic 3 and Cordova at "Whipix" <span style="font-size:13px; color:#555;">(full-time: Nov 2017 - Mar 2018)</span></li>
+      <li>Built many static websites' frontend at "Whipix"</li>
+    </div>
+
+    <div *ngIf="sections.JS" class="row" id="js">
+        <h3>- Good at <i class="material-icons">&#xE86C;</i></h3>
+        <li>JS basic features</li>
+        <li>Closures</li>
+        <li>Memory management</li>
+        <li>MVC</li>
+
+        <h3>- Learning <i class="material-icons">&#xE88C;</i></h3>
+        <li>Prototype Chains</li>
+        <li>Design patterns</li>
+
+        <h3>- To Learn <i class="material-icons">&#xE86D;</i></h3>
+        <li>Node.js (Sails.js)</li>
+        <li>React.js and Redux</li>
+        <li>Unit and Integration Testing</li>
+    </div>
+
+    <div *ngIf="sections.out" class="row" id="out">
+      <p>- Love Animals</p>
+      <p>- Interested in Philosophy and Intellect</p>
+      <p>- Volunteer</p>
+      <p>- Minimalist in using things</p>
+      <p>- Love People</p>
+    </div>
   </div>
 </div>
 
-<div *ngIf="human" class="row" [@showSec]>
-  <div class="back" style="position:absolute;padding:11.5vw;"><img src="../assets/back.png" alt="go back" (click)="back('human')"></div>
-  <ul id="human">
-    <li id="oo1" class="left">Love Animals</li>
-    <li id="tt2" class="right">Interested in Philosophy and Intellect</li>
-    <li id="tt3" class="left">Volunteer</li>
-    <li id="ff4" class="right">Minimalist in using things</li>
-    <li id="ff5" class="left">Love People</li>
-  </ul>
-</div>
+<!-- 
+  <div *ngIf="buttons" [@showBut] style="padding:120px 0;">
+    <button [ngStyle]="smallButton" (click)="activSec('objective')">My Objective</button>
+    <button [ngStyle]="smallButton" (click)="activSec('techie')">Tech</button>
+    <button [ngStyle]="smallButton" (click)="activSec('skills')">Relevant Skills</button>
+    <button [ngStyle]="smallButton" (click)="activSec('human')">Me Outside Work</button>
+  </div>
+
+  
+ -->
+
+
 <footer style="height:200px; background:#333; padding:60px 30px;font-size:13px;">
   <p>email: engineermohamed.ibrahim.mi@gmail.com</p>
   <p>mobile: +20 102 507 5652</p>
